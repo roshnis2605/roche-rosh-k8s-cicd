@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: rosh-lb1
+  name: rosh-lb1
+  namespace: rosh-project
+spec:
+  ports:
+  - name: 1234-80
+    port: 1234
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: rosh-lb1
+  type: ClusterIP
+status:
+  loadBalancer: {}

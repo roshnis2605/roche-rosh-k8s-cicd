@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: rosh-web-final
+  name: rosh-web-final
+  namespace: rosh-project
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rosh-web-final
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: rosh-web-final
+    spec:
+      containers:
+      - image: rosh2605/webapp-roche-final:lastest
+        name: webapp-roche-final
+        ports:
+        - containerPort: 80
+        resources: {}
+status: {}
