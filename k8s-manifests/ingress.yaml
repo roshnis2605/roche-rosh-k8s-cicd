@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: rosh-ingress-rule # name of my routing rule
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  ingressClassName: nginx # we are using nginx ingress controller
+  rules:
+  - host: roche-ashu.delvex.io
+    http:
+      paths:
+      - path: /roshni
+        pathType: Prefix
+        backend:
+          service:
+            name: roshlb1
+            port:
+              number: 1234 #port of service
